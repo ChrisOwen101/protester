@@ -6,7 +6,7 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.Query;
 import com.firebase.client.ValueEventListener;
-import com.newschat.newschat.pojo.UserAccount;
+import com.protester.pojo.UserAccount;
 
 public class AccountHelper extends FirebaseHelper{
 
