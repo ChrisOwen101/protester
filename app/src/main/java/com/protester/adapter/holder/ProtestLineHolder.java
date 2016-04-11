@@ -8,12 +8,12 @@ import android.widget.TextView;
 
 import com.protester.R;
 
-public class StoryLineHolder extends RecyclerView.ViewHolder {
+public class ProtestLineHolder extends RecyclerView.ViewHolder {
     public TextView headline;
     public ImageView backgroundImage;
     public RelativeLayout storyContainer;
 
-    public StoryLineHolder(View itemView) {
+    public ProtestLineHolder(View itemView) {
         super(itemView);
         headline = (TextView)itemView.findViewById(R.id.headline);
         backgroundImage = (ImageView) itemView.findViewById(R.id.background_image);

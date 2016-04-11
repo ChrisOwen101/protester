@@ -11,10 +11,11 @@ import android.view.ViewGroup;
 
 import com.firebase.ui.FirebaseRecyclerAdapter;
 import com.protester.R;
-import com.protester.adapter.holder.StoryLineHolder;
+import com.protester.adapter.holder.ProtestLineHolder;
 import com.protester.eventbus.EventBus;
 import com.protester.eventbus.SetActionBarText;
 import com.protester.helper.DatabaseHelper;
+import com.protester.helper.FragmentHelper;
 import com.protester.pojo.Protest;
 
 import butterknife.Bind;
@@ -46,13 +47,21 @@ public class ProtestListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        new DatabaseHelper().addProtest();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mAdapter = new FirebaseRecyclerAdapter<Protest, StoryLineHolder>(Protest.class, R.layout.story_line, StoryLineHolder.class, new DatabaseHelper().retrieveStories()) {
+        mAdapter = new FirebaseRecyclerAdapter<Protest, ProtestLineHolder>(Protest.class, R.layout.story_line, ProtestLineHolder.class, new DatabaseHelper().retrieveProtests()) {
             @Override
-            public void populateViewHolder(StoryLineHolder storyLineHolder, final Protest protest, int position) {
-                storyLineHolder.headline.setText(protest.getName());
+            public void populateViewHolder(ProtestLineHolder protestLineHolder, final Protest protest, int position) {
+                protestLineHolder.headline.setText(protest.getName());
+                protestLineHolder.storyContainer.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FragmentHelper.replaceFragment(getActivity(), ProtestFragment.newInstance(protest));
+                    }
+                });
+
             }
         };
         recyclerView.setAdapter(mAdapter);

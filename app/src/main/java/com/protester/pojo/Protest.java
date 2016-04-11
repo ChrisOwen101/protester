@@ -1,6 +1,9 @@
 package com.protester.pojo;
 
-public class Protest {
+import java.io.Serializable;
+import java.util.Random;
+
+public class Protest implements Serializable {
 
     private String name;
     private String host;
@@ -9,6 +12,7 @@ public class Protest {
     private long startTime;
     private long endTime;
     private long timeStamp;
+    private int id;
 
     @SuppressWarnings("unused")
     private Protest() {
@@ -22,6 +26,8 @@ public class Protest {
         this.endTime = endTime;
         this.timeStamp = System.currentTimeMillis()/1000;
         this.imageUrl = imageUrl;
+        this.id = new Random().nextInt();
+
     }
 
     public String getName() {
@@ -47,5 +53,10 @@ public class Protest {
     public long getEndTime() {
         return endTime;
     }
+
+    public int getID(){
+        return id;
+    }
+
 
 }
