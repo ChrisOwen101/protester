@@ -1,6 +1,5 @@
 package com.protester.helper;
 
-import com.firebase.client.ChildEventListener;
 import com.firebase.client.Query;
 
 public class DatabaseHelper extends FirebaseHelper {
@@ -9,9 +8,8 @@ public class DatabaseHelper extends FirebaseHelper {
         super();
     }
 
-    public Query retrieveStories(ChildEventListener childEventListener){
-        Query queryRef = getFirebaseRef().child("/story/").orderByKey();
-        queryRef.addChildEventListener(childEventListener);
+    public Query retrieveStories(){
+        Query queryRef = getFirebaseRef().child("/protest/").orderByKey();
         return queryRef;
     }
 }

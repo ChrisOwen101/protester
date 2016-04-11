@@ -11,7 +11,7 @@ public abstract class FirebaseHelper {
     }
 
     public static void initialiseFirebase(){
-        firebaseRef = new Firebase("https://newschat.firebaseio.com");
+        firebaseRef = new Firebase("https://protester.firebaseio.com");
     }
 
     public static Firebase getFirebaseRef(){

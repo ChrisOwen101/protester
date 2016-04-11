@@ -1,6 +1,6 @@
 package com.protester.pojo;
 
-import com.newschat.newschat.helper.PreferenceHelper;
+import com.protester.helper.PreferenceHelper;
 
 public class ChatMessage {
 
@@ -8,7 +8,6 @@ public class ChatMessage {
     private String author;
     private long time;
 
-    // Required default constructor for Firebase object mapping
     @SuppressWarnings("unused")
     private ChatMessage() {
     }

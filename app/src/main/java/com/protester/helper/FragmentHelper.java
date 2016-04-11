@@ -3,7 +3,7 @@ package com.protester.helper;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
-import com.newschat.newschat.R;
+import com.protester.R;
 
 public class FragmentHelper {
 

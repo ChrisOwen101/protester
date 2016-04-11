@@ -3,7 +3,7 @@ package com.protester.helper;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.newschat.newschat.application.NewsChatApplication;
+import com.protester.application.ProtesterApplication;
 
 public class PreferenceHelper {
     private static final String SHARED_PREFERENCES_KEY = "com.guardian_preferences";
@@ -26,8 +26,8 @@ public class PreferenceHelper {
     }
 
     private PreferenceHelper() {
-        context = NewsChatApplication.getAppContext();
-        sharedPreferences = NewsChatApplication.getAppContext().getSharedPreferences(SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
+        context = ProtesterApplication.getAppContext();
+        sharedPreferences = ProtesterApplication.getAppContext().getSharedPreferences(SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
     }
 
     public SharedPreferences getPreferences() {
